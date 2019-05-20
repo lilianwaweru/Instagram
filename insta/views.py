@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Image
+from django.contrib.auth.decorators import login_required.
 
 # Create your views here.
 def welcome(request):
@@ -17,3 +18,6 @@ def search_image(request):
     else:
         message = "You haven't searched for any image"
         return render(request, 'search.html',{"message":message})    
+
+@login_required(login_url='/accounts/login/')
+def article(request, article_id):
