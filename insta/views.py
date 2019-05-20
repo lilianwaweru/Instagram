@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from .models import Image
-from django.contrib.auth.decorators import login_required.
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def welcome(request):
-    return render(request,'welcome.html')
+    images = Image.objects.all()
+    return render(request,'welcome.html',{"images":images})
 
 def search_image(request):
 
@@ -19,5 +20,13 @@ def search_image(request):
         message = "You haven't searched for any image"
         return render(request, 'search.html',{"message":message})    
 
-@login_required(login_url='/accounts/login/')
-def article(request, article_id):
+
+
+
+def index(request):
+    title = "Index Page"
+    return render (request, 'index.html', {"title":title})
+
+
+
+

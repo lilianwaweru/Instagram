@@ -18,4 +18,6 @@ class Image(models.Model):
         images = cls.objects.filter(image__name__icontains = search_term)
         return images
       
-    
+class Profile(models.Model):
+    followers= models.IntegerField(default=0)
+    followi

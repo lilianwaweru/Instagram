@@ -7,7 +7,8 @@
 <div class="container">
     {% for image in images %}
     <div class="row">
-        <img src="{{image.image.url}}">
+        <img src="{{image.image.url}}" alt="{{image.name}}">
+        <p><i class="far fa-heart"></i>Like</p>
     </div> 
     {% empty %}
     <h2>There are no images</h2>
