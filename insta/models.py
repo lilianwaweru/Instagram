@@ -12,9 +12,10 @@ class Image(models.Model):
     def delete_image(self):
         self.delete()  
 
-# class Profile(models.Model): 
-#     profile_image = models.ImageField(upload_to = 'images/',blank=True)
-#     Bio =  models.CharField(max_length= 100)
-    
+
+    @classmethod
+    def search_by_image(cls,search_term):
+        images = cls.objects.filter(image__name__icontains = search_term)
+        return images
       
     
