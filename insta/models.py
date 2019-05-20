@@ -3,7 +3,6 @@ from django.db import models
 # Create your models here.
 class Image(models.Model):
     name = models.CharField(max_length = 70)
-    description = models.TextField()
     image = models.ImageField(upload_to = 'images/',blank=True)
     
 
@@ -11,5 +10,11 @@ class Image(models.Model):
         self.save()
 
     def delete_image(self):
-        self.delete()   
+        self.delete()  
+
+# class Profile(models.Model): 
+#     profile_image = models.ImageField(upload_to = 'images/',blank=True)
+#     Bio =  models.CharField(max_length= 100)
+    
+      
     

@@ -4,4 +4,14 @@
 {{block.super}}
 <h1>Welcome to instagram</h1>
 
+<div class="container">
+    {% for image in images %}
+    <div class="row">
+        <img src="{{image.image.url}}">
+    </div> 
+    {% empty %}
+    <h2>There are no images</h2>
+    {% endfor %}
+</div>
+
 {% endblock %}
