@@ -10,9 +10,15 @@ class ImageTestClass(TestCase):
     def test_instance(self):
         self.assertTrue(isinstance(self.image,Image))
 
-
     def test_save_method(self):
         self.image.save_image()
         image = Image.objects.all()
         self.assertTrue(len(image) > 0)
 
+    def test_delete_profile(self):
+       self.new_image.delete_image()
+       images = Image.objects.all()
+       self.assertTrue(len(image)==0)
+
+class ProfileTestClass(TestCase):
+    
