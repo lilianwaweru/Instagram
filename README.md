@@ -44,9 +44,9 @@ The different technologies that were used to develop this program include:
 ### Link to live site
 Here is a link to the live site 
 ### Contact Me
-If you have any suggestions, additions or modifications on this project you can reach me via my email: njuguna13@gmail.com
+contact me via email lilowesh.lw@gmail.com an slack at Lilian waweru
 ### License  & Copyright information
-Copyright (c) 2019 Anthony Njuguna
+Copyright (c) 2019 lilian waweru
 [MIT License](./LICENSE)
 Collapse
 
