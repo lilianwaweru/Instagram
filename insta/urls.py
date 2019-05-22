@@ -9,7 +9,8 @@ urlpatterns=[
     url(r'posts/$',views.welcome,name = 'welcome'),
     url(r'^search/', views.search_image, name='search_image'),
     url(r'^profile/$',views.edit_profile_info, name='edit_profile_info'),
-    
+    url(r'^upload/$',views.Photo, name='uploadPhoto'),
+    url(r'comment/(\d+)', views.comment, name='comment'),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

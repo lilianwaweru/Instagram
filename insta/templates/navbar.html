@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-  <nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
     <div class="navbar-header">
+      <a><i class="fab fa-instagram"></i></a>
       <a class="navbar-brand" href="{% url 'welcome' %}">Instagram</a>
     </div>
-    <!-- Adding a search -->
+    
     <div class="col-sm-4 col-md-4 navbar-center">
 
       <form class="navbar-form" role="search" action="{% url 'search_image' %}">
@@ -24,6 +18,8 @@
         </div>
       </form>
       </div>
+      <p><a  href="{%url 'uploadPhoto'%}">Upload Photo</a></p>
+      <a  href="{% url 'edit_profile_info' %}"><i class="fas fa-user">create a  profile</i></a>
       <ul>
         <li>
             <a href="/logout"><i class="fas fa-sign-out-alt">Logout</i></a>
@@ -32,5 +28,4 @@
       
   </div>
 </nav>
-</body>
-</html>
+

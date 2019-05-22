@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
-from .models import Image,Profile
+from .models import Image,Profile,Comments
 from django.contrib.auth.decorators import login_required
-from .forms import getProfile
+from .forms import getProfile,uploadPhoto,Comment
 
 # Create your views here.
 def welcome(request):
@@ -28,7 +28,7 @@ def index(request):
     title = "Index Page"
     return render (request, 'index.html', {"title":title})
 
-
+@login_required(login_url='/accounts/login/')
 def edit_profile_info(request):
     logged_user =request.user.id
     if request.method == 'POST':
@@ -43,8 +43,43 @@ def edit_profile_info(request):
 
     return render(request,'Profile.html',{'form':form})
 
+@login_required(login_url='/accounts/login/')
+def Photo(request):
+    logged_user =request.user.id
+    if request.method == 'POST':
+        form = uploadPhoto(request.POST,request.FILES)
+        if form.is_valid():
+            Photo = form.save(commit=False)
+            Photo.profile = logged_user
+            Photo.save()
+            return redirect('welcome')
+    else:
+        form = uploadPhoto()
+
+    return render(request,'upload.html',{'form':form})
 
 
+@login_required(login_url='/accounts/login/')
+def comment(request,image_id):
+
+    image = Image.objects.get(id = image_id)
+
+    if request.method=='POST':
+        current_user=request.user
+        form=Comment(request.POST)
+        if form.is_valid:
+            comments=form.save(commit=False)
+            comments.user=current_user
+            comments.picture=image.id
+            comments.save()
+
+            return redirect('welcome')
+    else:
+        form=Comment()
+    
+    comments = Comments.objects.filter(picture=image_id).all
+    
+    return render(request,"comment.html",{'form':form, "image":image ,"comments":comments})
 
 
 
