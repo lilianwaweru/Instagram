@@ -11,6 +11,8 @@ urlpatterns=[
     url(r'^profile/$',views.edit_profile_info, name='edit_profile_info'),
     url(r'^upload/$',views.Photo, name='uploadPhoto'),
     url(r'comment/(\d+)', views.comment, name='comment'),
+    url(r'^profile_info/$',views.profile, name='profile_info'),
+
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

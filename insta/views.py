@@ -82,4 +82,16 @@ def comment(request,image_id):
     return render(request,"comment.html",{'form':form, "image":image ,"comments":comments})
 
 
+@login_required(login_url='/accounts/login/')
+def profile(request):
+    users =request.user.id
+    
+    try:
+        profile = Profile.objects.filter(infor=users).first()
+        all_images = Image.objects.filter(infor_id=request.user.id).all()
 
+    except ObjectDoesNotExist:
+
+        return redirect('welcome')
+
+    return render (request,"edit.html",{"profile":profile,"all_images":all_images})
