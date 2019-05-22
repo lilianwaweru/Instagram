@@ -2,13 +2,17 @@
 This is a clone of the already existing instagram app that allows one to follow other users, like and comment on their pictures and upload his or her own pictures. 
 
 
-
 ## Author
 [Lilian Muthoni Waweru](https://github.com/lilianwaweru)
 
 ## Behaviour Driven Development(BDD)
 
-
+| Input                                                 | Output                                                                      |
+|-------------------------------------------------------|-----------------------------------------------------------------------------|
+| When you land on the page                             | You will have to first register then login                                  |
+| at the navbar there is an icon for creating a profile | create your own profile and post it                                         |
+| there is a button for updloading images               | you can upload any image you want to                                        |
+| when you upload an image                              | you can like and comment on it and the comments appear on the comments page |
 
 
 
@@ -48,7 +52,7 @@ contact me via email lilowesh.lw@gmail.com an slack at Lilian waweru
 ### License  & Copyright information
 Copyright (c) 2019 lilian waweru
 [MIT License](./LICENSE)
-Collapse
+
 
 
 
