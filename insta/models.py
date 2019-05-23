@@ -7,7 +7,9 @@ class Profile(models.Model):
     bio = models.CharField(max_length = 70)
     profile_picture = models.ImageField(upload_to = 'images/',blank=True)
 
-    
+    class  Meta:
+        ordering=['profile_picture']
+        
     def save_profile(self):
         self.save()
 

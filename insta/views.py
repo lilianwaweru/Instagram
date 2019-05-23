@@ -6,7 +6,8 @@ from .forms import getProfile,uploadPhoto,Comment
 # Create your views here.
 def welcome(request):
     images = Image.objects.all()
-    return render(request,'welcome.html',{"images":images})
+    prof=Profile.objects.filter(infor=request.user.id)[0:1]
+    return render(request,'welcome.html',{"images":images,'prof':prof})
 
 def search_image(request):
 
@@ -34,10 +35,10 @@ def edit_profile_info(request):
     if request.method == 'POST':
         form = getProfile(request.POST,request.FILES)
         if form.is_valid():
-            edit_profile = form.save(commit=False)
-            edit_profile.infor = logged_user
-            edit_profile.save()
-            return redirect('welcome')
+            edit = form.save(commit=False)
+            edit.infor = logged_user
+            edit.save()
+        return redirect('welcome')
     else:
         form = getProfile()
 
@@ -88,7 +89,7 @@ def profile(request):
     
     try:
         profile = Profile.objects.filter(infor=users).first()
-        all_images = Image.objects.filter(infor_id=request.user.id).all()
+        all_images = Image.objects.filter(infor=request.user.id).all()
 
     except ObjectDoesNotExist:
 
